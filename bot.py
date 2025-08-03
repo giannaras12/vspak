@@ -21,7 +21,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 # Constants
 LOG_CHANNEL_ID = 1386555864831365197
 DUTY_CHANNEL_ID = 1386555864831365198
-ADMIN_USER_ID = 848805899790581780 
+ADMIN_ID = 848805899790581780 
 
 # Load or initialize points
 try:
@@ -246,4 +246,5 @@ import threading
 threading.Thread(target=run).start()
 
 # Run bot
+
 bot.run(os.getenv("BOT_TOKEN"))
