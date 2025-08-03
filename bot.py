@@ -21,7 +21,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 # Constants
 LOG_CHANNEL_ID = 1386555864831365197
 DUTY_CHANNEL_ID = 1386555864831365198
-ADMIN_ID = 848805899790581780 
+ADMIN_USER_ID = 848805899790581780 
 
 # Load or initialize points
 try:
@@ -68,6 +68,9 @@ class ReminderView(View):
         super().__init__(timeout=120)
         self.user = user
         self.responded = False
+
+    async def on_timeout(self):
+        self.stop()
 
     @discord.ui.button(label="Continue", style=discord.ButtonStyle.green)
     async def continue_callback(self, interaction: discord.Interaction, button: Button):
@@ -246,5 +249,4 @@ import threading
 threading.Thread(target=run).start()
 
 # Run bot
-
 bot.run(os.getenv("BOT_TOKEN"))
